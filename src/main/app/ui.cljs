@@ -4,7 +4,8 @@
     [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc Person [this {:person/keys [name age]}]
-  {:initial-state
+  {:query [:person/name :person/age]
+   :initial-state
    (fn [{:keys [name age]}]
      #:person{:name name :age age})}
   (dom/li
@@ -14,7 +15,8 @@
 (def ui-person (comp/factory Person {:keyfn :person/name}))
 
 (defsc PersonList [this {:list/keys [label people]}]
-  {:initial-state
+  {:query [:list/label {:list/people (comp/get-query Person)}]
+   :initial-state
    (fn [{:keys [label]}]
      #:list{:label  label
             :people (case label
@@ -33,7 +35,9 @@
 (def ui-person-list (comp/factory PersonList))
 
 (defsc Root [this {:keys [friends enemies]}]
-  {:initial-state
+  {:query [{:friends (comp/get-query PersonList)}
+           {:enemies (comp/get-query PersonList)}]
+   :initial-state
    (fn [_] {:friends (comp/get-initial-state PersonList {:label "Friends"})
             :enemies (comp/get-initial-state PersonList {:label "Enemies"})})}
   (dom/div
