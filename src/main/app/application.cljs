@@ -1,6 +1,6 @@
 (ns app.application
-  (:require [com.fulcrologic.fulcro.application :as app]
-            [app.ui :as ui]))
+  (:require [app.ui :as ui]
+            [com.fulcrologic.fulcro.application :as app]))
 
 (defonce app (app/fulcro-app))
 

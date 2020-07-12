@@ -1,8 +1,8 @@
 (ns app.ui
   (:require
+    [app.mutations :as api]
     [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
-    [com.fulcrologic.fulcro.dom :as dom]
-    [app.mutations :as api]))
+    [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc Person [this {:person/keys [name age]} {:keys [onDelete]}]
   {:query [:person/name :person/age]
