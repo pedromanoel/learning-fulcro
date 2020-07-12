@@ -14,10 +14,7 @@
       (dom/button {:onClick #(onDelete name)} "X"))))
 
 ;; The keyfn generates a react key for each element based on props. See React documentation on keys.
-(def ui-person (comp/factory Person {:keyfn :person/name}))
-
-(defn ui-person-with-on-delete [onDelete]
-  (fn [props] (ui-person (comp/computed props {:onDelete onDelete}))))
+(def ui-person (comp/computed-factory Person {:keyfn :person/name}))
 
 (defsc PersonList [this {:list/keys [label people]}]
   {:query [:list/label {:list/people (comp/get-query Person)}]
@@ -36,7 +33,7 @@
     (dom/div
       (dom/h4 label)
       (dom/ul
-        (map (ui-person-with-on-delete delete-person) people)))))
+        (map #(ui-person % {:onDelete delete-person}) people)))))
 
 (def ui-person-list (comp/factory PersonList))
 
