@@ -9,7 +9,10 @@
                           binaryage/devtools        {:mvn/version "1.0.5"}
                           clj-kondo/clj-kondo       {:mvn/version "2022.03.09"}}}
 
+           :lint-ns
+           {:replace-deps {com.github.clojure-lsp/clojure-lsp {:mvn/version "2022.01.03-19.46.10"}}
+            :exec-fn      clojure-lsp.api/clean-ns!}
+
            :lint-format
            {:replace-deps {com.github.clojure-lsp/clojure-lsp {:mvn/version "2022.01.03-19.46.10"}}
-            :exec-fn      clojure-lsp.api/format!
-            :exec-args    {:dry? false}}}}
+            :exec-fn      clojure-lsp.api/format!}}}

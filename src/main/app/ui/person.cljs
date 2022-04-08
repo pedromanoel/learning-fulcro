@@ -1,6 +1,7 @@
 (ns app.ui.person
-  (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
-            [com.fulcrologic.fulcro.dom :as dom]))
+  (:require
+   [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
+   [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc Person [_this {:person/keys [id name age]} {:keys [onDelete]}]
   {:query [:person/id :person/name :person/age]

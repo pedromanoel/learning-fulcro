@@ -1,6 +1,7 @@
 (ns app.mutations
-  (:require [com.fulcrologic.fulcro.mutations :as m :refer [defmutation]]
-            [com.fulcrologic.fulcro.algorithms.merge :as merge]))
+  (:require
+   [com.fulcrologic.fulcro.algorithms.merge :as merge]
+   [com.fulcrologic.fulcro.mutations :as m :refer [defmutation]]))
 
 (defmutation delete-person
   "Mutation: Delete the person :person/id from the list :list/id"

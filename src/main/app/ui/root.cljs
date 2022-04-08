@@ -1,7 +1,8 @@
 (ns app.ui.root
-  (:require [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
-            [com.fulcrologic.fulcro.dom :as dom]
-            [app.ui.person-list :as person-list]))
+  (:require
+   [app.ui.person-list :as person-list]
+   [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
+   [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc Root [_this person-lists]
   {:query [{:friends (comp/get-query person-list/PersonList)}

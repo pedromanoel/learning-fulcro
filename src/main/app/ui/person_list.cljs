@@ -1,8 +1,9 @@
 (ns app.ui.person-list
-  (:require [app.mutations :as api]
-            [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
-            [com.fulcrologic.fulcro.dom :as dom]
-            [app.ui.person :as person]))
+  (:require
+   [app.mutations :as api]
+   [app.ui.person :as person]
+   [com.fulcrologic.fulcro.components :as comp :refer [defsc]]
+   [com.fulcrologic.fulcro.dom :as dom]))
 
 (defsc PersonList [this {:list/keys [id label people]}]
   {:query [:list/id :list/label {:list/people (comp/get-query person/Person)}]
