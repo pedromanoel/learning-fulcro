@@ -1,10 +1,9 @@
 {:paths   ["src/main" "resources"]
- :deps    {org.clojure/clojure    {:mvn/version "1.10.1"}
-           com.fulcrologic/fulcro {:mvn/version "3.2.11"}}
+ :deps    {org.clojure/clojure    {:mvn/version "1.11.1"}
+           com.fulcrologic/fulcro {:mvn/version "3.5.16"}}
 
- :aliases {:dev   {:extra-paths ["src/dev"]
-                   :extra-deps  {org.clojure/clojurescript {:mvn/version "1.10.773"}
-                                 thheller/shadow-cljs      {:mvn/version "2.10.14"}
-                                 binaryage/devtools        {:mvn/version "1.0.2"}}}
-           :nsorg {:extra-deps {nsorg-cli {:mvn/version "0.3.1"}}
-                   :main-opts  ["-m" "nsorg.cli"]}}}
+ :aliases {:dev {:extra-paths ["src/dev"]
+                 :extra-deps  {org.clojure/clojurescript {:mvn/version "1.11.4"}
+                               thheller/shadow-cljs      {:mvn/version "2.18.0"}
+                               binaryage/devtools        {:mvn/version "1.0.5"}
+                               clj-kondo/clj-kondo       {:mvn/version "2022.03.09"}}}}}
