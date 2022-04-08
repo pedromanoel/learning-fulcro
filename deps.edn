@@ -2,8 +2,14 @@
  :deps    {org.clojure/clojure    {:mvn/version "1.11.1"}
            com.fulcrologic/fulcro {:mvn/version "3.5.16"}}
 
- :aliases {:dev {:extra-paths ["src/dev"]
-                 :extra-deps  {org.clojure/clojurescript {:mvn/version "1.11.4"}
-                               thheller/shadow-cljs      {:mvn/version "2.18.0"}
-                               binaryage/devtools        {:mvn/version "1.0.5"}
-                               clj-kondo/clj-kondo       {:mvn/version "2022.03.09"}}}}}
+ :aliases {:dev
+           {:extra-paths ["src/dev"]
+            :extra-deps  {org.clojure/clojurescript {:mvn/version "1.11.4"}
+                          thheller/shadow-cljs      {:mvn/version "2.18.0"}
+                          binaryage/devtools        {:mvn/version "1.0.5"}
+                          clj-kondo/clj-kondo       {:mvn/version "2022.03.09"}}}
+
+           :lint-format
+           {:replace-deps {com.github.clojure-lsp/clojure-lsp {:mvn/version "2022.01.03-19.46.10"}}
+            :exec-fn      clojure-lsp.api/format!
+            :exec-args    {:dry? false}}}}
